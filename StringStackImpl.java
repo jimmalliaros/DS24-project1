@@ -36,6 +36,10 @@ public class StringStackImpl implements StringStack{
         }
     }
 
+    public int size(){
+        return size;
+    }
+
 
 
 
