@@ -1,4 +1,5 @@
 import java.util.NoSuchElementException;
+import java.io.PrintStream;
 
 public class StringStackImpl implements StringStack{
     private Node  top;
@@ -35,6 +36,32 @@ public class StringStackImpl implements StringStack{
 
         }
     }
+
+
+    public String peek() throws NoSuchElementException{
+        if(isEmpty()){
+            throw new NoSuchElementException();
+        }
+        else{
+
+            return top.getData();
+        }
+    }
+
+    public void printStack(PrintStream stream){
+
+        if(isEmpty()){
+            stream.println("The list is empty!");
+        }
+
+        Node current=top;
+        while(current.getNext()!=null){
+            stream.print(current.getData() + " -> ");
+            current=current.getNext();
+        }
+
+    }
+
 
     public int size(){
         return size;
