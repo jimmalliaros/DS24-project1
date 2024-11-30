@@ -1,34 +1,28 @@
-public class Node{
-    protected String data;
-    protected  Node next=null;
+public class Node<T>{
+    protected  T data;
+    protected  Node<T> next=null;
 
-    Node(String data){
-        this.data=data;
 
-    }
-
-    public  void setData(String data){
+    Node(T data){
         this.data=data;
     }
-    public String getData(){
+
+    public void setNext(Node<T> my_node){
+        this.next=my_node;
+    }
+
+    public Node<T> getNext(){
+        return this.next;
+    }
+
+    public void setData(T data){
+        this.data=data;
+    }
+
+    public T getData(){
         return data;
     }
 
-    public void setNext(Node  next_node){
-        this.next=next_node;
-    }
-
-    public void setNext(String next_data){
-        this.next=new Node(next_data);
-    }
-
-    public Node getNext(){
-        return next;
-    }
-
-    public String getNext_data(){
-        return next.getData();
-    }
 
 
 
