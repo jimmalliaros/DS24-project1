@@ -1,3 +1,4 @@
+import java.io.PrintStream;
 import java.util.*;
 public class List<T>{
     private Node<T> head=null;
@@ -21,9 +22,9 @@ public class List<T>{
         }
     }
 
-    public T removeFromFront() throws Exception{
+    public T removeFromFront() throws NoSuchElementException{
         if(isEmpty()){
-            throw new Exception("The list is empty!");
+            throw new NoSuchElementException();
         }
 
         else{
@@ -57,9 +58,9 @@ public class List<T>{
     }
 
 
-    public T removeFromEnd() throws Exception{
+    public T removeFromEnd() throws NoSuchElementException{
         if(isEmpty()){
-            throw new Exception("The list empty!");
+            throw new NoSuchElementException();
         }
         else{
             T removed_data=tail.getData();
@@ -82,6 +83,50 @@ public class List<T>{
             }
 
             return removed_data;
+        }
+    }
+
+    public T returnFromEnd() throws NoSuchElementException{
+        if(isEmpty()){
+            throw new NoSuchElementException();
+
+        }
+        else{
+
+            return tail.getData();
+        }
+
+    }
+
+    public T returnFromFront() throws NoSuchElementException{
+        if(isEmpty()){
+            throw new NoSuchElementException();
+        }
+        else{
+            return head.getData();
+        }
+    }
+
+    public void print(PrintStream printStream){
+        if(isEmpty()){
+            System.out.println("List is empty!");
+        }
+
+        else{
+            Node<T> current=head;
+            StringBuilder sb=new StringBuilder();
+
+            sb.append("HEAD -> ");
+
+            while(current!=null){
+                sb.append(current.getData().toString());
+                if(current.getNext()!=null){
+                    sb.append(" -> ");
+                }
+                current=current.getNext();
+            }
+            sb.append(" <- TAIL");
+            printStream.println(sb);
         }
     }
 

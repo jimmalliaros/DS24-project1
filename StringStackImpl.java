@@ -2,65 +2,41 @@ import java.util.NoSuchElementException;
 import java.io.PrintStream;
 
 public class StringStackImpl<String> implements StringStack<String>{
-    private Node<String>  top;
+    List<String> my_list=new List<String>();
     private int size=0;
 
     public boolean isEmpty(){
-        return (size==0);
+        return my_list.isEmpty();
     }
 
     public void push(String item){
-        Node<String> new_node=new Node<String>(item);
-
-        if(top==null){
-            top=new_node;
-            size++;
-        }
-
-        else{
-            new_node.setNext(top);
-            top=new_node;
-            size++;
-        }
+        Node<String> temp=new Node<String>(item);
+        my_list.insertAtEnd(temp);
+        size++;
     }
 
     public String pop() throws NoSuchElementException {
-         if(isEmpty()){
-            throw new NoSuchElementException();
-        }
-        else {
-            String my_string=top.getData();
-            top=top.getNext();
-            size=size-1;
+
+            String my_string=my_list.removeFromEnd();
+            size--;
             return my_string;
 
 
-        }
+
+
+
 
     }
 
 
     public String peek() throws NoSuchElementException{
-        if(isEmpty()){
-            throw new NoSuchElementException();
-        }
-        else{
 
-            return top.getData();
-        }
+        return my_list.returnFromEnd();
     }
 
     public void printStack(PrintStream stream){
+        my_list.print(stream);
 
-        if(isEmpty()){
-            stream.println("The list is empty!");
-        }
-
-        Node<String> current=top;
-        while(current.getNext()!=null){
-            stream.print(current.getData() + " -> ");
-            current=current.getNext();
-        }
 
     }
 

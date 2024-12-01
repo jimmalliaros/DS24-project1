@@ -34,7 +34,7 @@ public class DoubleQueueImpl<Double> implements DoubleQueue<Double>{
         else{
             Double my_double=head.getData();
             head=head.getNext();
-            return
+            return my_double;
         }
     }
 
