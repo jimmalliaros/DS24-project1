@@ -2,47 +2,37 @@ import java.io.PrintStream;
 import java.util.NoSuchElementException;
 
 public class DoubleQueueImpl<Double> implements DoubleQueue<Double>{
-    Node<Double> head=null;
-    Node<Double> tail=null;
+
+    List<Double> my_list=new List<Double>();
     int size=0;
 
-
     public boolean isEmpty(){
-        return (size==0);
+        return my_list.isEmpty();
     }
 
     public void put(Double item){
-        Node<Double> new_node=new Node<Double>(item);
-        if(head==tail){
-            head=new_node;
-            tail=new_node;
-            size++;
-        }
-
-        else{
-            tail.setNext(new_node);
-            tail=new_node;
-            size++;
-        }
+        Node<Double> temp=new Node<Double>(item);
+        my_list.insertAtEnd(temp);
+        size++;
     }
 
     public Double get() throws NoSuchElementException{
-        if(isEmpty()){
-            throw new NoSuchElementException();
-        }
-
-        else{
-            Double my_double=head.getData();
-            head=head.getNext();
-            return my_double;
-        }
+        Double my_double=my_list.removeFromFront();
+        size--;
+        return my_double;
     }
 
+    public Double peek() throws NoSuchElementException{
+        return my_list.returnFromFront();
+    }
 
+    public void printQueue(PrintStream stream){
+        my_list.print(stream);
 
+    }
 
     public int size(){
-        return size;
+        return  size;
     }
 
 
