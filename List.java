@@ -126,6 +126,7 @@ public class List<T>{
                 current=current.getNext();
             }
             sb.append(" <- TAIL");
+
             printStream.println(sb);
         }
     }

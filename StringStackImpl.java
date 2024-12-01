@@ -11,13 +11,13 @@ public class StringStackImpl<String> implements StringStack<String>{
 
     public void push(String item){
         Node<String> temp=new Node<String>(item);
-        my_list.insertAtEnd(temp);
+        my_list.insertAtFront(temp);
         size++;
     }
 
     public String pop() throws NoSuchElementException {
 
-            String my_string=my_list.removeFromEnd();
+            String my_string=my_list.removeFromFront();
             size--;
             return my_string;
 
@@ -31,7 +31,7 @@ public class StringStackImpl<String> implements StringStack<String>{
 
     public String peek() throws NoSuchElementException{
 
-        return my_list.returnFromEnd();
+        return my_list.returnFromFront();
     }
 
     public void printStack(PrintStream stream){
@@ -44,6 +44,9 @@ public class StringStackImpl<String> implements StringStack<String>{
     public int size(){
         return size;
     }
+
+
+
 
 
 
