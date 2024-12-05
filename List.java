@@ -109,7 +109,7 @@ public class List<T>{
 
     public void print(PrintStream printStream){
         if(isEmpty()){
-            System.out.println("List is empty!");
+            System.out.println("It  is empty!");
         }
 
         else{
