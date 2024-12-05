@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TagChecking{
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException ,TagsNotMatchingExc{
        StringStack<String> my_stack=new StringStackImpl<>();
 
         Scanner filescanner =new Scanner(new File("myfile.html"));
@@ -35,7 +35,7 @@ public class TagChecking{
                         my_stack.pop();
                     }
                     else{
-
+                          throw  new TagsNotMatchingExc();  
                     }
                 }
 
