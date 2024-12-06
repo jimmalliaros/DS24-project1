@@ -35,7 +35,7 @@ public class TagChecking{
                         my_stack.pop();
                     }
                     else{
-                          throw  new TagsNotMatchingExc();  
+                          throw  new TagsNotMatchingExc();
                     }
                 }
 
@@ -46,6 +46,9 @@ public class TagChecking{
 
 
         }
+
+
+        System.out.println("Tag matching !");
 
 
 
