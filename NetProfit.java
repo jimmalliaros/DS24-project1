@@ -55,11 +55,17 @@ public class NetProfit{
 
     static  double compute_profit(double my_amount,double my_price,DoubleQueue<Double> my_amounts,DoubleQueue<Double> my_prices){
             double my_profit=0.0;
-            for(int i=1; i<=my_amounts.size(); i++){
+            while(my_amount>0){
                 double t_amount=my_amounts.get();
                 double t_price=my_prices.get();
-                my_profit+=t_amount*(my_price-t_price);
-
+                if(my_amount<t_amount){
+                    my_profit+=my_amount*(my_price-t_price);
+                    my_amount=0;
+                }
+                else {
+                    my_profit+=t_amount*(my_price-t_price);
+                    my_amount-=t_amount;
+                }
             }
 
             return my_profit;
