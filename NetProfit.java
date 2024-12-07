@@ -30,14 +30,39 @@ public class NetProfit{
 
 
 
-                else{
-                    continue;
+                else if(next.equals("sell")){
+                    String sell_amount=linescanner.next();
+                    double amount=Double.parseDouble(sell_amount);
+                    String t_string=linescanner.next();
+                    String sell_price=linescanner.next();
+                    double price =Double.parseDouble(sell_price);
+                    double profit =compute_profit(amount,price,amounts_queue,prices_queue);
+                    System.out.println("The profit is : " +  profit);
+
+
+
+
+
+
                 }
             }
 
         }
 
-        prices_queue.printQueue(System.out);
-        amounts_queue.printQueue(System.out);
+
     }
+
+
+    static  double compute_profit(double my_amount,double my_price,DoubleQueue<Double> my_amounts,DoubleQueue<Double> my_prices){
+            double my_profit=0.0;
+            for(int i=1; i<=my_amounts.size(); i++){
+                double t_amount=my_amounts.get();
+                double t_price=my_prices.get();
+                my_profit+=t_amount*(my_price-t_price);
+
+            }
+
+            return my_profit;
+    }
+
 }
