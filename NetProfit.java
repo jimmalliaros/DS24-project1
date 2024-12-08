@@ -5,9 +5,12 @@ import java.io.*;
 
 public class NetProfit{
     public static void main(String[] args) throws FileNotFoundException {
-        DoubleQueue<Double> prices_queue=new DoubleQueueImpl<Double>() ;
-        DoubleQueue<Double> amounts_queue=new DoubleQueueImpl<Double>() ;
-        Scanner filescanner=new Scanner(new File("stock.txt"));
+
+        String path =args[0];
+
+        DoubleQueue<Double> prices_queue=new DoubleQueueImpl<Double>();
+        DoubleQueue<Double> amounts_queue=new DoubleQueueImpl<Double>();
+        Scanner filescanner=new Scanner(new File(path));
 
         while(filescanner.hasNextLine()){
             String my_line=filescanner.nextLine();

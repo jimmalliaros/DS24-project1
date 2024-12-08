@@ -6,9 +6,11 @@ import java.util.regex.Pattern;
 
 public class TagChecking{
     public static void main(String[] args) throws FileNotFoundException ,TagsNotMatchingExc{
-       StringStack<String> my_stack=new StringStackImpl<>();
 
-        Scanner filescanner =new Scanner(new File("myfile.html"));
+        String path =args[0];
+        StringStack<String> my_stack=new StringStackImpl<>();
+
+        Scanner filescanner =new Scanner(new File(path));
 
 
 
