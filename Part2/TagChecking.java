@@ -1,8 +1,13 @@
+package Part2;
+
 import java.awt.*;
 import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import Part1.*;
+
+
 
 public class TagChecking{
     public static void main(String[] args) throws FileNotFoundException ,TagsNotMatchingExc{

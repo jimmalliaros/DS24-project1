@@ -1,3 +1,5 @@
+package Part2;
+
 import java.util.DoubleSummaryStatistics;
 
 public class TagsNotMatchingExc extends Exception{

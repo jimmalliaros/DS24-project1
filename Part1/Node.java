@@ -1,3 +1,4 @@
+package Part1;
 public class Node<T>{
     protected  T data;
     protected  Node<T> next=null;

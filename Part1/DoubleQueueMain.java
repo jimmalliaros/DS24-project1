@@ -1,3 +1,7 @@
+package Part1;
+
+import Part1.DoubleQueue;
+
 public class DoubleQueueMain{
     public static void main(String[] args){
         DoubleQueue<Double> my_doublequeue=new DoubleQueueImpl<Double>();

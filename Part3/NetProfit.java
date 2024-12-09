@@ -1,7 +1,10 @@
+package Part3;
+
 import java.io.PrintStream;
 import java.util.NoSuchElementException;
 import java.util.*;
 import java.io.*;
+import Part1.*;
 
 public class NetProfit{
     public static void main(String[] args) throws FileNotFoundException {

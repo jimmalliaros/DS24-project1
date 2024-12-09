@@ -1,3 +1,5 @@
+package Part1;
+
 import java.io.PrintStream;
 import java.util.NoSuchElementException;
 
