@@ -1,4 +1,4 @@
-package Part1;
+package src.Part1;
 
 import Part1.DoubleQueue;
 

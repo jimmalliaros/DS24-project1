@@ -1,12 +1,11 @@
-package Part2;
+package src.Part2;
 
-import java.awt.*;
 import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import Part1.*;
 
+import src.Part1.*;
 
 
 public class TagChecking{

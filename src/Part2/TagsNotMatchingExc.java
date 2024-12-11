@@ -1,4 +1,4 @@
-package Part2;
+package src.Part2;
 
 import java.util.DoubleSummaryStatistics;
 
