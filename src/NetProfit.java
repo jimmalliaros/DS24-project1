@@ -7,7 +7,10 @@ import java.io.*;
 
 
 public class NetProfit{
-    public static void main(String[] args) throws FileNotFoundException {
+
+    static  double  total_amount=0.0;
+
+    public static void main(String[] args) throws FileNotFoundException, NotEnoughStocksExc {
 
         String path =args[0];
 
@@ -25,12 +28,13 @@ public class NetProfit{
                 if(next.equals("buy")){
                     String my_amount=linescanner.next();
                     amounts_queue.put(Double.parseDouble(my_amount));
-                    System.out.println(my_amount);
+                    total_amount+=Double.parseDouble(my_amount);
+
                 }
                 else if (next.equals("price")) {
                     String my_price=linescanner.next();
                     prices_queue.put(Double.parseDouble(my_price));
-                    System.out.println(my_price);
+
                 }
 
 
@@ -59,22 +63,27 @@ public class NetProfit{
     }
 
 
-    static  double compute_profit(double my_amount,double my_price,DoubleQueue<Double> my_amounts,DoubleQueue<Double> my_prices){
-            double my_profit=0.0;
-            while(my_amount>0){
-                double t_amount=my_amounts.get();
-                double t_price=my_prices.get();
-                if(my_amount<t_amount){
-                    my_profit+=my_amount*(my_price-t_price);
-                    my_amount=0;
-                }
-                else {
-                    my_profit+=t_amount*(my_price-t_price);
-                    my_amount-=t_amount;
-                }
+    static  double compute_profit(double my_amount,double my_price,DoubleQueue<Double> my_amounts,DoubleQueue<Double> my_prices) throws NotEnoughStocksExc {
+            if(total_amount<my_amount){
+                throw new NotEnoughStocksExc();
             }
+            else {
+                double my_profit = 0.0;
+                while (my_amount > 0) {
+                    double t_amount = my_amounts.get();
+                    double t_price = my_prices.get();
+                    if (my_amount < t_amount) {
+                        my_profit += my_amount * (my_price - t_price);
+                        my_amount = 0;
+                    } else {
+                        my_profit += t_amount * (my_price - t_price);
+                        my_amount -= t_amount;
+                    }
+                }
 
-            return my_profit;
+                return my_profit;
+
+            }
     }
 
 }

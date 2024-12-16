@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 
 public class TagChecking{
-    public static void main(String[] args) throws FileNotFoundException ,TagsNotMatchingExc{
+    public static void main(String[] args) throws FileNotFoundException, TagsNotMatchingExc {
 
         String path =args[0];
         StringStack<String> my_stack=new StringStackImpl<>();
@@ -41,7 +41,7 @@ public class TagChecking{
                         my_stack.pop();
                     }
                     else{
-                          throw  new TagsNotMatchingExc();
+                          throw new TagsNotMatchingExc();
                     }
                 }
 
