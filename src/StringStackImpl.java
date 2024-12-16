@@ -10,7 +10,7 @@ public class StringStackImpl<String> implements StringStack<String>{
     private int size=0;
 
     public boolean isEmpty(){
-        return my_list.isEmpty();
+        return (size==0);
     }
 
     public void push(String item){
